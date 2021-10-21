@@ -1,1 +1,1 @@
-from .password import Password
+from .password import password_model
