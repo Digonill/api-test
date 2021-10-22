@@ -1,1 +1,1 @@
-from .password import password_model
+from .modelview_pwd import ModelViewPasswd

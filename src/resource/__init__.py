@@ -1,1 +1,1 @@
-from .password import Password
+from main_resource import MainResource

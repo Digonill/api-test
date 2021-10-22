@@ -1,1 +1,1 @@
-from controller.password import Password
+from .main_controller import MainController

@@ -1,4 +1,4 @@
-from src.server.server import server
+from src.server import oServerInstance
 
 if __name__ == '__main__':
-    server.run()
+    oServerInstance.run()

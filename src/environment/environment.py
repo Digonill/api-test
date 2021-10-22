@@ -1,14 +1,12 @@
 import os
 
-# Load the development "mode". Use "development" if not specified
 env = os.environ.get("PYTHON_ENV", "development")
 
-# Configuration for each environment
-# Alternatively use "python-dotenv"
 all_environments = {
-    "development": { "port": 5000, "debug": True, "swagger-url": "/api/swagger" },
-    "production": { "port": 8080, "debug": False, "swagger-url": None  }
+    "development": { "port": 5000, "debug": True, "swagger-url": "/doc" },
+    "production": { "port": 8080, "debug": False, "swagger-url": "/doc"  }
 }
+
 
 
 environment_config = all_environments[env]

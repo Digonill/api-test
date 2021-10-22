@@ -1,9 +1,9 @@
 from flask import Flask
-from flask_restplus import Api, Resource, fields
-from environment import environment_config
+from flask_restx import Api
+from src.environment import environment_config
 
 
-class Server(object):
+class ServerInstance(object):
     def __init__(self) -> None:
         self.app = Flask(__name__)
         self.api = Api(self.app,
@@ -12,6 +12,7 @@ class Server(object):
                        description='The Password API',
                        doc=environment_config["swagger-url"]
                        )
+        self.ns = self.api.namespace('Todos', description= 'Todo operation')
 
     def run(self):
         self.app.run(
@@ -20,4 +21,4 @@ class Server(object):
         )
 
 
-server = Server()
+oServerInstance = ServerInstance()
