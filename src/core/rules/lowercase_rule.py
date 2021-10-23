@@ -1,4 +1,4 @@
-from .abstract_rule import AbstractRule
+from .abstract_rule import AbstractRule, ResultRule
 
 
 class LowerCaseRule(AbstractRule):
@@ -13,4 +13,4 @@ class LowerCaseRule(AbstractRule):
                 result = True
                 break
 
-        return super()._next_rule(str_pwd) if result else False, self.LOWERCASE_FAILED
+        return self._next_rule.apply(str_pwd) if result else ResultRule(False, self.LOWERCASE_FAILED)

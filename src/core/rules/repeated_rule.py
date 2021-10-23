@@ -1,4 +1,5 @@
-from abstract_rule import AbstractRule
+from .abstract_rule import AbstractRule, ResultRule
+
 
 class RepeatedRule(AbstractRule):
     REPEATED_CHAR = "Don't allow repeated letters."
@@ -11,8 +12,6 @@ class RepeatedRule(AbstractRule):
             # checking if there duplicate
             if str_pwd.count(char) > 1:
                 result = False
-        
-        return super()._next_rule(str_pwd) if result  else False, self.REPEATED_CHAR
-        
+                break
 
-        
+        return self.next(str_pwd) if result else ResultRule(False, self.REPEATED_CHAR)

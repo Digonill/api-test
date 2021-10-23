@@ -1,1 +1,1 @@
-from main_resource import MainResource
+from .main_resource import MainResource, Descriptor

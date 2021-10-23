@@ -1,18 +1,23 @@
 from flask import Flask
 from flask_restx import Api
+
 from src.environment import environment_config
+from src.resource import Descriptor
 
 
 class ServerInstance(object):
     def __init__(self) -> None:
+        path = environment_config['pathbase']
+
         self.app = Flask(__name__)
         self.api = Api(self.app,
-                       version='1.0',
+                       version='2.0',
                        title='Password API',
                        description='The Password API',
                        doc=environment_config["swagger-url"]
                        )
-        self.ns = self.api.namespace('Todos', description= 'Todo operation')
+
+        self.api.add_namespace(Descriptor, path=path)
 
     def run(self):
         self.app.run(

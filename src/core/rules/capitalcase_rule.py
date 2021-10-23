@@ -1,4 +1,4 @@
-from .abstract_rule import AbstractRule
+from .abstract_rule import AbstractRule, ResultRule
 
 
 class CapitalCaseRule(AbstractRule):
@@ -14,4 +14,4 @@ class CapitalCaseRule(AbstractRule):
                 result = True
                 break
 
-        return super()._next_rule(str_pwd) if result else False, self.CAPITAL_CASE_FAILED
+        return self.next(str_pwd) if result else ResultRule(False, self.CAPITAL_CASE_FAILED)

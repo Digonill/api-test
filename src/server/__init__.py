@@ -1,1 +1,1 @@
-from .server_instance import oServerInstance
+from .server_instance import ServerInstance, oServerInstance

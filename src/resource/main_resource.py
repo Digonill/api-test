@@ -1,25 +1,17 @@
-from flask_restx import Resource
-
+from flask_restx import Resource, Namespace
 from src.controller import MainController
 from src.model import ModelViewPasswd
-from src.server import oServerInstance
 
-api = oServerInstance.api
-ns = oServerInstance.ns
+Descriptor = Namespace('Pwd', 'Api to validate rules password', ordered=True)
+Model = Descriptor.models[ModelViewPasswd.name] = ModelViewPasswd
 
 
-@ns.route('/', endpoint='Teste')
-@api.doc(responses={404: "Todo not found"}, params={"todo_id": "The Todo ID"})
+@Descriptor.route('/isvalid')
 class MainResource(Resource):
-
-    @ns.doc('teste')
-    @ns.marshal_list_with([])
-    def get(self):
-        '''List all tasks'''
-        return []
-
-    @ns.doc('isvalid')
-    @ns.marshal_with(ModelViewPasswd)
+    @Descriptor.expect(Model, validate=True)
+    @Descriptor.doc(body=Model)
+    @Descriptor.response(200, 'Success')
+    @Descriptor.response(400, 'Validation Error')
     def post(self):
-        request = api.payload
-        return MainController().isvalid(request)
+        data = Descriptor.payload
+        return MainController().isvalid(data)

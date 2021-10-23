@@ -1,4 +1,4 @@
-from .abstract_rule import AbstractRule
+from .abstract_rule import AbstractRule, ResultRule
 
 
 class SpecialCharRule(AbstractRule):
@@ -6,7 +6,13 @@ class SpecialCharRule(AbstractRule):
     SPECIAL_CHAR_EXP = '!@#$%^&*()-+'
 
     def apply(self, str_pwd: str) -> tuple:
-        if any(c in self.SPECIAL_CHAR_EXP for c in str_pwd):
-            return self._next_rule.apply(str_pwd)
-        
-        return False, self.SPECIAL_CHAR_FAILED
+
+        result = False
+
+        for char in str_pwd:
+            if char in self.SPECIAL_CHAR_EXP:
+                result = True
+                break
+
+
+        return self.next(str_pwd) if result else ResultRule(result, self.SPECIAL_CHAR_FAILED) 
