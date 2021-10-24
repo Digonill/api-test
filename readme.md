@@ -74,10 +74,21 @@ Para acessar o swagger da api ela estará no `http://localhost:5000/doc`
 ## Docker
 
 ```sh
+
+#build image 
 ./build.sh
 
-# after
+# execute
 
 ./run.sh
 
+```
+
+## Postman
+
+Estou disponibilizando a collectino do postman para realizar importação.
+
+```
+# json to import 
+./postman
 ```
