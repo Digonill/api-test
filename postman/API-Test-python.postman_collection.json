@@ -1,0 +1,171 @@
+{
+	"info": {
+		"_postman_id": "a4749b2e-cc8a-4fa0-ba65-e8849a7013a4",
+		"name": "API-Test-python",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "API - Validate LowerCase Rule",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"012345DA$\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/pwd/isvalid",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"pwd",
+						"isvalid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API - Validate Empty Rule",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"012345fda$ \"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/pwd/isvalid",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"pwd",
+						"isvalid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API - Validate Length Rule",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"abV$\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/pwd/isvalid",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"pwd",
+						"isvalid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API - Validate CapitalCase Rule",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"012345fda$\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/pwd/isvalid",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"pwd",
+						"isvalid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API - Validate Repeated Rule",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"0123455fDa$\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/pwd/isvalid",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"pwd",
+						"isvalid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API - Validate Specialchar Rule",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"0123455?rDa$\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/pwd/isvalid",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"pwd",
+						"isvalid"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

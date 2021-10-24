@@ -4,7 +4,7 @@ from .abstract_rule import AbstractRule, ResultRule
 class CapitalCaseRule(AbstractRule):
     CAPITAL_CASE_FAILED = "Required at least a capital letter."
 
-    def apply(self, str_pwd: str) -> tuple:
+    def apply(self, str_pwd: str) -> ResultRule:
 
         result = False
 

@@ -4,7 +4,7 @@ from .abstract_rule import AbstractRule, ResultRule
 class RepeatedRule(AbstractRule):
     REPEATED_CHAR = "Don't allow repeated letters."
 
-    def apply(self, str_pwd: str) -> tuple:
+    def apply(self, str_pwd: str) -> ResultRule:
 
         result = True
 

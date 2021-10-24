@@ -1,5 +1,6 @@
 from src.core.validator_password import ValidatorPassword
-import json
+
+
 class MainController():
     def __init__(self) -> None:
         self.validate = ValidatorPassword()
@@ -8,13 +9,11 @@ class MainController():
     def isvalid(self, string_pwd: dict) -> object:
 
         if string_pwd is None:
-            ValueError('Password invalid')
+            raise ValueError('Password invalid')
 
-        result = self.validate.apply(string_pwd.get('text',''))
+        result = self.validate.apply(string_pwd.get('text', ''))
 
         if result.Status:
             return result, 201
 
         return result, 400
-
-

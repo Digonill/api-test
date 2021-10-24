@@ -1,4 +1,11 @@
-from .rules import CapitalCaseRule, EmptyRule, LowerCaseRule, RepeatedRule, SpecialCharRule
+from src.core.rules.length_rule import LengthRule
+from .rules import (
+    CapitalCaseRule,
+    EmptyRule,
+    LowerCaseRule,
+    RepeatedRule,
+    SpecialCharRule
+)
 
 
 class ValidatorPassword():
@@ -7,6 +14,7 @@ class ValidatorPassword():
         self.__rule = EmptyRule()
 
         self.__rule.appendNext(
+            LengthRule()).appendNext(
             CapitalCaseRule()).appendNext(
             LowerCaseRule()).appendNext(
             RepeatedRule()).appendNext(

@@ -4,7 +4,7 @@ from .abstract_rule import AbstractRule, ResultRule
 class LowerCaseRule(AbstractRule):
     LOWERCASE_FAILED = "Required at least a lowercase letter."
 
-    def apply(self, str_pwd: str) -> tuple:
+    def apply(self, str_pwd: str) -> ResultRule:
 
         result = False
 
@@ -13,4 +13,4 @@ class LowerCaseRule(AbstractRule):
                 result = True
                 break
 
-        return self._next_rule.apply(str_pwd) if result else ResultRule(False, self.LOWERCASE_FAILED)
+        return self.next(str_pwd) if result else ResultRule(False, self.LOWERCASE_FAILED)

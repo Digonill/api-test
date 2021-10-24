@@ -14,14 +14,14 @@ class AbstractRule(Rule):
         self._next_rule = rule
         return rule
 
-    def next(self, str_pwd: str) -> tuple:
+    def next(self, str_pwd: str) -> ResultRule:
         if self._next_rule is None:
             return ResultRule(True, 'Validate OK')
 
         return self._next_rule.apply(str_pwd)
 
     @abstractmethod
-    def apply(self, str_pwd: str) -> tuple:
+    def apply(self, str_pwd: str) -> ResultRule:
         if self._next_rule:
             return self._next_rule.apply(str_pwd)
 
